@@ -1,0 +1,15 @@
+.wrapper{
+    margin-top: 20px;
+padding: 20px;
+border-radius: 10px;
+background-color: #0d6efd;
+color: #fff;
+
+p{
+    font-size: 18px;
+    &:nth-of-type(1){
+        font-size: 24px;
+        font-weight: bold;
+    }
+}
+}

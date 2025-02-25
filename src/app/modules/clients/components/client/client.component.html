@@ -1,0 +1,25 @@
+<div class="wrapper">
+  @if (client) {
+    <div class="my-3">
+      <p>Usuń klienta:</p>
+      <button mat-raised-button color="warm" (click)="openDialog()">
+        Usuń
+      </button>
+    </div>
+    <div class="my-3">
+      <p>Edytuj klienta:</p>
+      <button mat-raised-button color="primary" (click)="openEditDialog()">
+        Edytuj
+      </button>
+    </div>
+    <p>Dane klienta:</p>
+    <p>{{ client.firstname }} {{ client.surname }}</p>
+    <p>Adres e-mail: {{ client.email }}</p>
+    <p>
+      Numer telefonu: {{ client.phone | slice: 0 : 3 }}
+      {{ client.phone | slice: 3 : 12 }}
+    </p>
+    <p>Adres zamieszkania: {{ client.address }}</p>
+    <p>kod pocztowy: {{ client.postcode }}</p>
+  }
+</div>

@@ -1,0 +1,14 @@
+<mat-form-field appearance="fill" class="prefix">
+  <mat-label>Kierunkowy</mat-label>
+  <input matInput [formControl]="numberPrefixControl" />
+  @if (numberPrefixControl.errors) {
+    <mat-error>Zły numer kierunkowy</mat-error>
+  }
+</mat-form-field>
+<mat-form-field appearance="fill" class="number">
+  <mat-label>Numer tel.</mat-label>
+  <input matInput [formControl]="numberControl" />
+  @if (numberControl.errors) {
+    <mat-error>Numer powinien zawierać 9 cyfr</mat-error>
+  }
+</mat-form-field>

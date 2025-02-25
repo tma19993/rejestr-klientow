@@ -1,0 +1,67 @@
+<div class="register-wrapper mt-3">
+  <h2>Zarejestruj się:</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <div>
+      <mat-form-field>
+        <mat-label>Adres e-mail</mat-label>
+        <input matInput placeholder="test@email.com" formControlName="email" />
+        @if (controls.email.invalid) {
+          <mat-error>{{ getErrorMessage(controls.email) }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Nazwa użytkownika</mat-label>
+        <input matInput formControlName="username" />
+        @if (controls.username.invalid) {
+          <mat-error>{{ getErrorMessage(controls.username) }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Hasło</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+        />
+        @if (controls.password.invalid) {
+          <mat-error>{{ getErrorMessage(controls.password) }}</mat-error>
+        }
+
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <!-- <ng-container formArrayName="hobbies">
+      <div *ngFor="let hobby of hobbies.controls; index as i">
+        <input [formControlName]="i" type="text" />
+        <button
+          class="btn btn-sm btn-danger"
+          (click)="removeControl(i)"
+          type="button"
+        >
+          X
+        </button>
+      </div>
+    </ng-container> -->
+    <!-- <button (click)="addControl()" type="button">Dodaj kontrolkę</button> -->
+    <div class="d-flex justify-content-end">
+      <!-- <button type="button" (click)="enableControl()">Włącz</button> -->
+      <button mat-flat-button type="submit" [disabled]="registerForm.invalid">
+        Zarejestruj się
+      </button>
+    </div>
+    <!-- <app-alert *ngIf="errorMessage" [text]="errorMessage" /> -->
+  </form>
+</div>
